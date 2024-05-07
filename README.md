@@ -7,4 +7,8 @@
 - 각 게임 별로 주기적으로 전적결과를 받아볼 수 있음
 
 ## ✅ Application UI
-<img src="https://github.com/f-lab-edu/watch-gg/assets/84367108/25f1f743-6c10-47ad-aebc-4940c618db8d" width="700" height="1100"/>
+<img src="https://github.com/f-lab-edu/watch-gg/assets/84367108/25f1f743-6c10-47ad-aebc-4940c618db8d" width="700" height="1000"/>
+
+## ✅ DB ERD
+<img src="https://github.com/f-lab-edu/watch-gg/assets/84367108/c56de1f1-461e-44c4-ba8a-af01b1c7b506"/>
+https://www.erdcloud.com/d/FGMZxypu5oapMdbo7
