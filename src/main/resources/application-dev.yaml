@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_DEV_URL}
+    username: root
+    password: ${SPRING_DATASOURCE_DEV_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
