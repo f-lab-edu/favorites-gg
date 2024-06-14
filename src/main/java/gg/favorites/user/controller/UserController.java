@@ -1,7 +1,6 @@
 package gg.favorites.user.controller;
 
-import gg.favorites.exception.ErrorCode;
-import gg.favorites.user.exception.UserException;
+import gg.favorites.user.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ public class UserController {
 
     @GetMapping(value = "/exception")
     public ResponseEntity<?> throwException() {
-        throw new UserException(ErrorCode.BAD_REQUEST);
+        throw new UserNotFoundException("유저를 찾을 수 없습니다.");
     }
 }
 
