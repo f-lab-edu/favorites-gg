@@ -1,9 +1,10 @@
 package gg.favorites.user.controller;
 
-import gg.favorites.common.exception.EntityNotFoundException;
-import gg.favorites.common.response.CommonResponse;
+import gg.favorites.common.suppot.reponse.ApiResponse;
+import gg.favorites.user.exception.UserNotFoundException;
 import gg.favorites.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(value = "/user/{userId}")
-    public CommonResponse getUser(@PathVariable String userId) {
-        return CommonResponse.success(userService.findByUserId(userId));
+    public ApiResponse getUser(@PathVariable String userId) {
+        return ApiResponse.success(userService.findByUserId(userId));
     }
 
     @GetMapping(value = "/exception")
-    public CommonResponse throwException() {
-        throw new EntityNotFoundException("hi");
+    public ResponseEntity<?> throwException() {
+        throw new UserNotFoundException("유저를 찾을 수 없습니다.");
     }
 }
 
