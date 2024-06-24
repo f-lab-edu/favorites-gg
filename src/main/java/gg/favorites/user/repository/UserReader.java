@@ -1,7 +1,7 @@
 package gg.favorites.user.repository;
 
-import gg.favorites.common.exception.EntityNotFoundException;
 import gg.favorites.user.domain.User;
+import gg.favorites.user.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public interface UserReader {
 
         @Override
         public User getUserByUserId(String userId) {
-            return userRepository.findByUserId(userId).orElseThrow(EntityNotFoundException::new);
+            return userRepository.findByUserId(userId).orElseThrow(UserNotFoundException::new);
         }
     }
 }
