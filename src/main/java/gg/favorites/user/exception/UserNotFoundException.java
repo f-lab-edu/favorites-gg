@@ -1,23 +1,25 @@
 package gg.favorites.user.exception;
 
 import gg.favorites.common.exception.BaseException;
-import org.springframework.http.HttpStatus;
-
-import java.util.logging.Level;
+import gg.favorites.common.suppot.error.ErrorCode;
+import org.slf4j.event.Level;
 
 public class UserNotFoundException extends BaseException {
+    private static final ErrorCode CODE = ErrorCode.USER_NOT_FOUND;
+
+    public UserNotFoundException() {
+        super(CODE);
+    }
+
+    public UserNotFoundException(Level logLevel) {
+        super(CODE.setLogLevel(logLevel));
+    }
 
     public UserNotFoundException(String errorMessage) {
-        super(errorMessage);
+        super(CODE.setErrorMessage(errorMessage));
     }
 
-    @Override
-    protected HttpStatus getStatus() {
-        return HttpStatus.NOT_FOUND;
-    }
-
-    @Override
-    protected Level getLogLevel() {
-        return Level.WARNING;
+    public UserNotFoundException(Level logLevel, String errorMessage) {
+        super(CODE.setLogLevel(logLevel).setErrorMessage(errorMessage));
     }
 }

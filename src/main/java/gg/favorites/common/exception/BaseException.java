@@ -1,14 +1,23 @@
 package gg.favorites.common.exception;
-import org.springframework.http.HttpStatus;
-import java.util.logging.Level;
 
-public abstract class BaseException extends RuntimeException {
-    protected BaseException(String message) {
-        super(message);
+import gg.favorites.common.suppot.error.ErrorCode;
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+import org.slf4j.event.Level;
+
+public class BaseException extends RuntimeException {
+    protected final ErrorCode errorCode;
+
+    public BaseException(ErrorCode errorCode) {
+        super(errorCode.getErrorMessage());
+        this.errorCode = errorCode;
     }
 
-    protected abstract HttpStatus getStatus();
+    public HttpStatus getHttpStatus() {
+        return errorCode.getHttpStatus();
+    }
 
-    protected abstract Level getLogLevel();
-
+    public Level getLogLevel() {
+        return errorCode.getLogLevel();
+    }
 }
