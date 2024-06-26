@@ -1,6 +1,6 @@
-package gg.favorites.user.dto;
+package gg.favorites.api.user;
 
-import gg.favorites.user.domain.User;
+import gg.favorites.domain.user.User;
 import lombok.Getter;
 import lombok.ToString;
 

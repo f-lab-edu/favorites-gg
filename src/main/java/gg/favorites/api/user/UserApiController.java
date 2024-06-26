@@ -1,9 +1,10 @@
-package gg.favorites.user.controller;
+package gg.favorites.api.user;
 
 import gg.favorites.common.suppot.reponse.ApiResponse;
-import gg.favorites.user.exception.UserNotFoundException;
-import gg.favorites.user.service.UserService;
+import gg.favorites.domain.user.UserNotFoundException;
+import gg.favorites.domain.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.event.Level;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api")
-public class UserController {
-
+public class UserApiController {
     private final UserService userService;
 
     @GetMapping(value = "/user/{userId}")
@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping(value = "/exception")
     public ResponseEntity<?> throwException() {
-        throw new UserNotFoundException("유저를 찾을 수 없습니다.");
+        throw new UserNotFoundException(Level.WARN);
     }
 }
 

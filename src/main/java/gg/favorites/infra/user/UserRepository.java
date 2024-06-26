@@ -1,6 +1,6 @@
-package gg.favorites.user.repository;
+package gg.favorites.infra.user;
 
-import gg.favorites.user.domain.User;
+import gg.favorites.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
