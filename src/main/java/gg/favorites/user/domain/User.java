@@ -1,8 +1,14 @@
 package gg.favorites.user.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Getter
 @Entity
+@ToString
+@NoArgsConstructor
 @Table(name = "TB_USER")
 public class User {
     @Id
@@ -20,13 +26,10 @@ public class User {
 
     private boolean alertEnabled;
 
-    public User() {}
-
     public User(String userId, String password, String email, boolean alertEnabled) {
         this.userId = userId;
         this.password = password;
         this.email = email;
         this.alertEnabled = alertEnabled;
     }
-
 }
