@@ -1,4 +1,4 @@
-package gg.favorites.user.domain;
+package gg.favorites.domain.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
